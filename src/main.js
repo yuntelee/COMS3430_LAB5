@@ -62,61 +62,63 @@ const appState = {
 };
 
 document.querySelector("#app").innerHTML = `
-  <main class="minimal">
-    <h1>Cellular Automata Loop</h1>
+  <main class="split-layout">
+    <section class="minimal left-panel">
+      <h1>Cellular Automata Loop</h1>
 
-    <label for="ca-seed-input">Initial row</label>
-    <div class="seed-field">
-      <input id="ca-seed-input" type="text" placeholder="001001001001" />
-      <button id="seed-randomize" type="button" class="seed-randomize">Randomize</button>
-    </div>
-
-    <div class="control-grid">
-      <label for="bpm-input">BPM</label>
-      <input id="bpm-input" type="number" min="50" max="220" step="1" value="120" />
-    </div>
-
-    <div class="button-row">
-      <button id="generate-ca">Generate</button>
-      <button id="play-ca">Play Loop</button>
-    </div>
-
-    <div class="piano-roll" id="ca-roll"></div>
-
-    <div class="loop-indicator" aria-live="polite">
-      <div class="loop-track">
-        <span class="loop-playhead" id="loop-playhead"></span>
+      <label for="ca-seed-input">Initial row</label>
+      <div class="seed-field">
+        <input id="ca-seed-input" type="text" placeholder="001001001001" />
+        <button id="seed-randomize" type="button" class="seed-randomize">Randomize</button>
       </div>
-    </div>
 
-    <details class="ca-details">
-      <summary>Cellular Automata Output</summary>
+      <div class="control-grid">
+        <label for="bpm-input">BPM</label>
+        <input id="bpm-input" type="number" min="50" max="220" step="1" value="120" />
+      </div>
+
+      <div class="button-row">
+        <button id="generate-ca">Generate</button>
+        <button id="play-ca">Play Loop</button>
+      </div>
+
+      <div class="piano-roll" id="ca-roll"></div>
+
+      <div class="loop-indicator" aria-live="polite">
+        <div class="loop-track">
+          <span class="loop-playhead" id="loop-playhead"></span>
+        </div>
+      </div>
+
+      <h2>Blog</h2>
+      <p class="meta">April 24, 2026</p>
+      <p class="sequence-text">
+        This lab turned out to be less about running cellular automata and more about making algorithmic behavior feel
+        musical inside a browser loop.
+      </p>
+      <p class="sequence-text">
+        This is a note and sequence generator based on an elementary cellular automaton. The CA engine itself is
+        straightforward: evolve binary rows from a seed and rule, then map each row to musical decisions.
+      </p>
+      <p class="sequence-text">
+        A seeded binary row evolves across generations. Each generation is translated into pitch, rhythmic value, and
+        rest placement, then packed into a four-bar loop that can be played back in the browser.
+      </p>
+      <p class="sequence-text">
+        Writing music comes naturally to me, and I usually do not think about it as explicit algorithms. That was not
+        the case for this system. My first versions sounded like a random note machine, so I had to add specific
+        constraints and guidelines: keeping notes diatonic to a key, quantizing rhythm to recognizable values (eighth,
+        quarter, dotted values, etc.), limiting form to a four-bar loop, and leaning on the musical idea that "repetition legitimizes".
+        Even with those constraints, the output still feels machine-generated, which made me think more critically about
+        what makes sound feel organized. A key improvement was mapping pitch by median live-cell position, which gave a
+        much more stable melodic contour.
+      </p>
+    </section>
+
+    <aside class="minimal right-panel">
+      <h2>Cellular Automata Output</h2>
       <div class="ca-grid" id="ca-grid" aria-label="Cellular automata generations"></div>
-    </details>
-
-    <h2>Blog</h2>
-    <p class="meta">April 24, 2026</p>
-    <p class="sequence-text">
-      This lab turned out to be less about running cellular automata and more about making algorithmic behavior feel
-      musical inside a browser loop.
-    </p>
-    <p class="sequence-text">
-      This is a note and sequence generator based on an elementary cellular automaton. The CA engine itself is
-      straightforward: evolve binary rows from a seed and rule, then map each row to musical decisions.
-    </p>
-    <p class="sequence-text">
-      A seeded binary row evolves across generations. Each generation is translated into pitch, rhythmic value, and
-      rest placement, then packed into a four-bar loop that can be played back in the browser.
-    </p>
-    <p class="sequence-text">
-      Writing music comes naturally to me, and I usually do not think about it as explicit algorithms. That was not
-      the case for this system. My first versions sounded like a random note machine, so I had to add specific
-      constraints and guidelines: keeping notes diatonic to a key, quantizing rhythm to recognizable values (eighth,
-      quarter, dotted values, etc.), limiting form to a four-bar loop, and leaning on the musical idea that "repetition legitimizes".
-      Even with those constraints, the output still feels machine-generated, which made me think more critically about
-      what makes sound feel organized. A key improvement was mapping pitch by median live-cell position, which gave a
-      much more stable melodic contour.
-    </p>
+    </aside>
   </main>
 `;
 

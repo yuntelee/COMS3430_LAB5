@@ -25,9 +25,16 @@ body {
 }
 
 #app {
-  max-width: 760px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px 14px;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
 }
 
 .minimal {
@@ -199,6 +206,11 @@ button:hover {
   background: #101419;
 }
 
+.right-panel .ca-grid {
+  margin-top: 10px;
+  max-height: min(78vh, 860px);
+}
+
 .ca-cell {
   aspect-ratio: 1 / 1;
   background: #20262f;
@@ -207,4 +219,14 @@ button:hover {
 
 .ca-cell.live {
   background: #76d8a8;
+}
+
+@media (max-width: 920px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .right-panel .ca-grid {
+    max-height: 260px;
+  }
 }
