@@ -94,29 +94,25 @@ document.querySelector("#app").innerHTML = `
       <div class="ca-grid" id="ca-grid" aria-label="Cellular automata generations"></div>
     </details>
 
-    <h2>Cellular Automata as a Looping Instrument</h2>
+    <h2>Blog</h2>
     <p class="meta">April 24, 2026</p>
     <p class="sequence-text">
-      <strong>Introduction:</strong>
       This lab turned out to be less about running cellular automata and more about making algorithmic behavior feel
       musical inside a browser loop.
     </p>
     <p class="sequence-text">
-      <strong>What this is:</strong>
       This is a note and sequence generator based on an elementary cellular automaton. The CA engine itself is
       straightforward: evolve binary rows from a seed and rule, then map each row to musical decisions.
     </p>
     <p class="sequence-text">
-      <strong>How it works very briefly:</strong>
       A seeded binary row evolves across generations. Each generation is translated into pitch, rhythmic value, and
       rest placement, then packed into a four-bar loop that can be played back in the browser.
     </p>
     <p class="sequence-text">
-      <strong>Thoughts:</strong>
       Writing music comes naturally to me, and I usually do not think about it as explicit algorithms. That was not
       the case for this system. My first versions sounded like a random note machine, so I had to add specific
       constraints and guidelines: keeping notes diatonic to a key, quantizing rhythm to recognizable values (eighth,
-      quarter, dotted values, etc.), limiting form to a four-bar loop, and using repetition to support coherence.
+      quarter, dotted values, etc.), limiting form to a four-bar loop, and leaning on the musical idea that "repetition legitimizes".
       Even with those constraints, the output still feels machine-generated, which made me think more critically about
       what makes sound feel organized. A key improvement was mapping pitch by median live-cell position, which gave a
       much more stable melodic contour.
